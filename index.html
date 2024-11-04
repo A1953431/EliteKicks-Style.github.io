@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Tenis - Elite Kicks & Style</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .back-button {
+            background-color: #007bff; /* Color del botón */
+            color: white; /* Color del texto */
+            padding: 10px 15px; /* Espaciado interno */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambiar cursor al pasar */
+            margin: 20px 0; /* Espaciado arriba y abajo */
+            display: none; /* Oculto por defecto */
+        }
+
+        .back-button:hover {
+            background-color: #0056b3; /* Color al pasar el cursor */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="logo.jfif" alt="Logo de Elite Kicks & Style">
+            <a href="index.html">
+                <div class="company-name">Elite Kicks & Style</div>
+            </a>
+        </div>
+        <div class="user-options">
+            <div class="button-container">
+                <button class="header-button" onclick="location.href='contacto.html'">Contacto</button>
+                <button class="header-button" onclick="location.href='conocenos.html'">Conócenos</button>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos..." style="height: 38px;">
+                <button type="button" onclick="performSearch()">Buscar</button>
+            </div>
+            <div class="login" id="loginBtn">Iniciar Sesión</div>
+            <div class="cart" id="cartBtn">
+                🛒 Carrito <span id="cartCount">0</span>
+            </div>
+        </div>
+    </div>
+    <!-- Botón de regresar -->
+    <button onclick="window.history.back();" class="back-button" style="display: none;">Regresar</button>
+
+    <div id="welcomeMessage" class="welcome-message" style="display:none;"></div>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="im1.jpg" alt="Tenis 1" class="product-image">
+            <h2 class="product-name">Tenis Nike Air Force 1</h2>
+            <p class="product-model">Modelo: RN-2024</p>
+            <p class="product-price" data-price="2299.99">$2,299.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="im2.jpg" alt="Tenis 2" class="product-image">
+            <h2 class="product-name">Tenis Adidas Samba</h2>
+            <p class="product-model">Modelo: US-100</p>
+            <p class="product-price" data-price="1999.99">$1999.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="im3.jpg" alt="Tenis 3" class="product-image">
+            <h2 class="product-name">Tenis Jordan Spike Zero</h2>
+            <p class="product-model">Modelo: BB-450</p>
+            <p class="product-price" data-price="3599.99">$3,599.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="im4.jpg" alt="Tenis 4" class="product-image">
+            <h2 class="product-name">Tenis Puma Palermo</h2>
+            <p class="product-model">Modelo: CR-2023</p>
+            <p class="product-price" data-price="1899.99">$1899.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="im5.jpg" alt="Tenis 5" class="product-image">
+            <h2 class="product-name">Tenis Air More Uptempo</h2>
+            <p class="product-model">Modelo: CC-2024</p>
+            <p class="product-price" data-price="4099.99">$4,099.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="im6.jpg" alt="Tenis 6" class="product-image">
+            <h2 class="product-name">Tenis Jordan Basketball</h2>
+            <p class="product-model">Modelo: DM-2025</p>
+            <p class="product-price" data-price="2299.99">$2,299.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="adi2000.jpg" alt="Tenis 7" class="product-image">
+            <h2 class="product-name">Tenis Adidas Adi2000</h2>
+            <p class="product-model">Modelo: Ad-900</p>
+            <p class="product-price" data-price="2899.99">$2,899.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="IM8.jpg" alt="Tenis 8" class="product-image">
+            <h2 class="product-name">Tenis Jordan 1 Mocha</h2>
+            <p class="product-model">Modelo: TS-2024</p>
+            <p class="product-price" data-price="4299.99">$4,299.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="IM9.jpg" alt="Tenis 9" class="product-image">
+            <h2 class="product-name">Tenis Jordan 1 TS</h2>
+            <p class="product-model">Modelo: DT-1905</p>
+            <p class="product-price" data-price="1099.99">$1,099.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="IM10.jpg" alt="Tenis 10" class="product-image">
+            <h2 class="product-name">Tenis Jordan 1 Low</h2>
+            <p class="product-model">Modelo: KW-9001</p>
+            <p class="product-price" data-price="1399.99">$1,399.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="IM11.jpg" alt="Tenis 11" class="product-image">
+            <h2 class="product-name">Tenis Adidas Campus</h2>
+            <p class="product-model">Modelo: AC-9999</p>
+            <p class="product-price" data-price="2599.99">$2,599.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="IM12.png" alt="Tenis 12" class="product-image">
+            <h2 class="product-name">Tenis Air Force 1</h2>
+            <p class="product-model">Modelo: AF-3901</p>
+            <p class="product-price" data-price="1899.99">$1,899.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="IM13.jpg" alt="Tenis 13" class="product-image">
+            <h2 class="product-name">Tenis Nike Dunk Low</h2>
+            <p class="product-model">Modelo: DK-4672</p>
+            <p class="product-price" data-price="1999.99">$1,999.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="IM14.jpg" alt="Tenis 14" class="product-image">
+            <h2 class="product-name">Tenis Nike Cortez</h2>
+            <p class="product-model">Modelo: CT-1957</p>
+            <p class="product-price" data-price="1799.99">$1,799.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="IM15.jpg" alt="Tenis 15" class="product-image">
+            <h2 class="product-name">Tenis Nike Dunk Low Blue</h2>
+            <p class="product-model">Modelo: DB-6723</p>
+            <p class="product-price" data-price="1599.99">$1,599.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="IM16.jpg" alt="Tenis 16" class="product-image">
+            <h2 class="product-name">Tenis Converse</h2>
+            <p class="product-model">Modelo: CV-1632</p>
+            <p class="product-price" data-price="2299.99">$2,299.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="baket.jpg" alt="Tenis 17" class="product-image">
+            <h2 class="product-name">Tenis Adidas Basketball</h2>
+            <p class="product-model">Modelo: AB-9861</p>
+            <p class="product-price" data-price="3299.99">$3,299.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="IM18.jpg" alt="Tenis 18" class="product-image">
+            <h2 class="product-name">Tenis Nike Air Force 1 Red</h2>
+            <p class="product-model">Modelo: AN-7512</p>
+            <p class="product-price" data-price="1899.99">$1,899.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="IM19.jpg" alt="Tenis 19" class="product-image">
+            <h2 class="product-name">Tenis Nike Air Max Plus</h2>
+            <p class="product-model">Modelo: MP-8541</p>
+            <p class="product-price" data-price="4299.99">$4,299.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="IM20.jpg" alt="Tenis 20" class="product-image">
+            <h2 class="product-name">Tenis Puma Suede</h2>
+            <p class="product-model">Modelo: PS-7210</p>
+            <p class="product-price" data-price="2299.99">$2,299.99</p>
+            <label for="quantity1">Cantidad:</label>
+            <input type="number" id="quantity1" class="quantity-input" value="1" min="1" max="10">
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+    </div>
+
+    <!-- Modal de Detalles del Producto -->
+    <div id="productDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeProductDetails">&times;</span>
+            <h2 id="productName"></h2>
+            <img id="productImage" src="" alt="Imagen del Producto">
+            <p id="productPrice"></p>
+            <label for="size">Selecciona tu talla:</label>
+            <select id="size">
+                <option value="22">22 cm</option>
+                <option value="22.5">22.5 cm</option>
+                <option value="23">23 cm</option>
+                <option value="23.5">23.5 cm</option>
+                <option value="24">24 cm</option>
+                <option value="24.5">24.5 cm</option>
+                <option value="25">25 cm</option>
+                <option value="25.5">25.5 cm</option>
+                <option value="26">26 cm</option>
+                <option value="26.5">26.5 cm</option>
+                <option value="27">27 cm</option>
+                <option value="27.5">27.5 cm</option>
+                <option value="28">28 cm</option>
+                <option value="28.5">28.5 cm</option>
+                <option value="29">29 cm</option>
+                <option value="29.5">29.5 cm</option>
+                <option value="30">30 cm</option>
+                <option value="30.5">30.5 cm</option>
+                <option value="31">31 cm</option>
+                <option value="31.5">31.5 cm</option>
+            </select>
+            <label for="quantity">Cantidad:</label>
+            <input type="number" id="quantity" value="1" min="1" max="10">
+            <button id="addToCartBtn">Agregar al carrito</button>
+        </div>
+    </div>
+
+     <!-- Modal de Inicio de Sesión -->
+     <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+            <!-- Nueva sección para comprar como invitado -->
+            <div class="guest-section">
+                <h2>Comprar como Invitado</h2>
+                <form id="guestForm">
+                    <label for="name">Nombre Completo:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="guestEmail">Correo Electrónico:</label>
+                    <input type="email" id="guestEmail" name="email" required>
+                    <div class="terms-label">
+                        <input type="checkbox" id="terms" name="terms">
+                        <label for="terms">Acepto los términos y condiciones</label>
+                    </div>
+                    <button type="submit">Continuar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Carrito -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeCart">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <div id="cartItems"></div>
+            <h3>Total: $<span id="cartTotal">0.00</span></h3>
+            <button id="checkoutBtn">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <!-- Modal de Pago -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closePayment">&times;</span>
+            <h2>Opciones de Pago</h2>
+            <form id="paymentForm">
+                <label for="paymentMethod">Selecciona tu método de pago:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="debito">Tarjeta de Débito</option>
+                    <option value="credito">Tarjeta de Crédito</option>
+                    <option value="amex">American Express</option>
+                    <option value="sucursal">Pagar en Sucursal</option>
+             </select>
+
+             <div id="cardDetails" style="display:none;">
+                <label for="cardNumber">Número de Tarjeta:</label>
+                <input type="text" id="cardNumber" name="cardNumber" required>
+                <label for="expiryDate">Fecha de Vencimiento (MM/AA):</label>
+                <input type="text" id="expiryDate" name="expiryDate" required placeholder="MM/AA">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+            </div>
+
+            <button type="submit">Pagar</button>
+            <button type="button" id="goBackBtn">Regresar</button>
+        </form>
+    </div>
+    
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
